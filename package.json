@@ -3,7 +3,7 @@
   "displayName": "FSD Architect",
   "description": "A professional Next.js + Feature-Sliced Design (FSD) architecture assistant",
   "version": "1.0.0",
-  "publisher": "fsd-architect-team",
+  "publisher": "CodeYaxyo",
   "repository": {
     "type": "git",
     "url": "https://github.com/CodeYaxyo/fsd_architect"
