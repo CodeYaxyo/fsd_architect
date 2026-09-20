@@ -1,0 +1,172 @@
+{
+  "name": "fsd-architect",
+  "displayName": "FSD Architect",
+  "description": "A professional Next.js + Feature-Sliced Design (FSD) architecture assistant",
+  "version": "1.0.0",
+  "publisher": "fsd-architect-team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeYaxyo/fsd_architect"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "fsd-architect-sidebar",
+          "title": "FSD Architect",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "fsd-architect-sidebar": [
+        {
+          "id": "fsd-architect-tools",
+          "name": "Tools"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "fsd-architect.generateBarrel",
+        "title": "FSD Architect: Generate Barrel"
+      },
+      {
+        "command": "fsd-architect.optimizeImports",
+        "title": "FSD Architect: Optimize Imports"
+      },
+      {
+        "command": "fsd-architect.organizeImports",
+        "title": "FSD Architect: Organize Imports"
+      },
+      {
+        "command": "fsd-architect.checkArchitecture",
+        "title": "FSD Architect: Check Architecture"
+      },
+      {
+        "command": "fsd-architect.showGraph",
+        "title": "FSD Architect: Show Architecture Graph"
+      },
+      {
+        "command": "fsd-architect.createFeature",
+        "title": "FSD Architect: Create Feature"
+      },
+      {
+        "command": "fsd-architect.createEntity",
+        "title": "FSD Architect: Create Entity"
+      },
+      {
+        "command": "fsd-architect.createWidget",
+        "title": "FSD Architect: Create Widget"
+      },
+      {
+        "command": "fsd-architect.createPage",
+        "title": "FSD Architect: Create Page"
+      },
+      {
+        "command": "fsd-architect.createShared",
+        "title": "FSD Architect: Create Shared Module"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "fsd-architect.generateBarrel",
+          "group": "fsd-architect@1"
+        },
+        {
+          "command": "fsd-architect.optimizeImports",
+          "group": "fsd-architect@2"
+        },
+        {
+          "command": "fsd-architect.createFeature",
+          "group": "fsd-architect@3"
+        },
+        {
+          "command": "fsd-architect.createEntity",
+          "group": "fsd-architect@4"
+        },
+        {
+          "command": "fsd-architect.createWidget",
+          "group": "fsd-architect@5"
+        },
+        {
+          "command": "fsd-architect.createPage",
+          "group": "fsd-architect@6"
+        },
+        {
+          "command": "fsd-architect.createShared",
+          "group": "fsd-architect@7"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "FSD Architect",
+      "properties": {
+        "fsdArchitect.imports.sort": {
+          "type": "boolean",
+          "default": true,
+          "description": "Sort imports automatically"
+        },
+        "fsdArchitect.imports.groupExternal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Group external packages together"
+        },
+        "fsdArchitect.imports.groupAliases": {
+          "type": "boolean",
+          "default": true,
+          "description": "Group internal aliases together"
+        },
+        "fsdArchitect.imports.groupRelative": {
+          "type": "boolean",
+          "default": true,
+          "description": "Group relative imports together"
+        },
+        "fsdArchitect.imports.separateTypeImports": {
+          "type": "boolean",
+          "default": true,
+          "description": "Separate type imports from regular imports"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package-ext",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package-ext": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "npm run package-ext && vsce package"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "@vscode/test-electron": "^3.1.0",
+    "chai": "^6.2.2",
+    "esbuild": "^0.28.2",
+    "eslint": "^8.47.0",
+    "mocha": "^12.0.2",
+    "typescript": "^5.1.6",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
